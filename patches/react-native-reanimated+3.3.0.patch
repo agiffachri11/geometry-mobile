@@ -1,0 +1,436 @@
+diff --git a/node_modules/react-native-reanimated/android/.classpath b/node_modules/react-native-reanimated/android/.classpath
+new file mode 100644
+index 0000000..bbe97e5
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/.classpath
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<classpath>
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17/"/>
++	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
++	<classpathentry kind="output" path="bin/default"/>
++</classpath>
+diff --git a/node_modules/react-native-reanimated/android/.gradle/nb-cache/trust/6DA3CA2E99AE4A104C959BBE5988C5BB0BFC9E2D089D4F38B9902479E1C5C16C b/node_modules/react-native-reanimated/android/.gradle/nb-cache/trust/6DA3CA2E99AE4A104C959BBE5988C5BB0BFC9E2D089D4F38B9902479E1C5C16C
+new file mode 100644
+index 0000000..d54cbfc
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/.gradle/nb-cache/trust/6DA3CA2E99AE4A104C959BBE5988C5BB0BFC9E2D089D4F38B9902479E1C5C16C
+@@ -0,0 +1 @@
++DA707024B07684ACA9BA07B1D984C0D10E5B2512AA75AB9B5F4A72DCB268F5A7
+diff --git a/node_modules/react-native-reanimated/android/.project b/node_modules/react-native-reanimated/android/.project
+new file mode 100644
+index 0000000..b6da202
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/.project
+@@ -0,0 +1,34 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<projectDescription>
++	<name>react-native-reanimated</name>
++	<comment>Project react-native-reanimated created by Buildship.</comment>
++	<projects>
++	</projects>
++	<buildSpec>
++		<buildCommand>
++			<name>org.eclipse.jdt.core.javabuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++		<buildCommand>
++			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++	</buildSpec>
++	<natures>
++		<nature>org.eclipse.jdt.core.javanature</nature>
++		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
++	</natures>
++	<filteredResources>
++		<filter>
++			<id>1737315955843</id>
++			<name></name>
++			<type>30</type>
++			<matcher>
++				<id>org.eclipse.core.resources.regexFilterMatcher</id>
++				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
++			</matcher>
++		</filter>
++	</filteredResources>
++</projectDescription>
+diff --git a/node_modules/react-native-reanimated/android/.settings/org.eclipse.buildship.core.prefs b/node_modules/react-native-reanimated/android/.settings/org.eclipse.buildship.core.prefs
+new file mode 100644
+index 0000000..1675490
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/.settings/org.eclipse.buildship.core.prefs
+@@ -0,0 +1,2 @@
++connection.project.dir=../../../android
++eclipse.preferences.version=1
+diff --git a/node_modules/react-native-reanimated/android/build.gradle b/node_modules/react-native-reanimated/android/build.gradle
+index 747cc58..b0295ed 100644
+--- a/node_modules/react-native-reanimated/android/build.gradle
++++ b/node_modules/react-native-reanimated/android/build.gradle
+@@ -401,6 +401,15 @@ apply plugin: "maven-publish"
+ apply plugin: "de.undercouch.download"
+ 
+ android {
++    buildFeatures {
++        buildConfig true
++        resValues true
++    }
++    namespace "com.swmansion.reanimated"
++    compileOptions {
++        sourceCompatibility JavaVersion.VERSION_17
++        targetCompatibility JavaVersion.VERSION_17
++    }
+     compileSdkVersion safeExtGet("compileSdkVersion", 30)
+     def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+     if (agpVersion.tokenize('.')[0].toInteger() >= 7) {
+@@ -499,10 +508,6 @@ android {
+         extractHeaders
+         extractSO
+     }
+-    compileOptions {
+-        sourceCompatibility JavaVersion.VERSION_1_8
+-        targetCompatibility JavaVersion.VERSION_1_8
+-    }
+     packagingOptions {
+         // For some reason gradle only complains about the duplicated version of librrc_root and libreact_render libraries
+         // while there are more libraries copied in intermediates folder of the lib build directory, we exclude
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/aar_metadata/debug/aar-metadata.properties b/node_modules/react-native-reanimated/android/build/intermediates/aar_metadata/debug/aar-metadata.properties
+new file mode 100644
+index 0000000..776557e
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/aar_metadata/debug/aar-metadata.properties
+@@ -0,0 +1,5 @@
++aarFormatVersion=1.0
++aarMetadataVersion=1.0
++minCompileSdk=1
++minCompileSdkExtension=0
++minAndroidGradlePluginVersion=1.0.0
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t.json b/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t.json
+new file mode 100644
+index 0000000..e542dae
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t.json
+@@ -0,0 +1,14 @@
++{
++  "allAbis": [
++    "armeabi-v7a",
++    "arm64-v8a",
++    "x86",
++    "x86_64"
++  ],
++  "validAbis": [
++    "ARMEABI_V7A",
++    "ARM64_V8A",
++    "X86",
++    "X86_64"
++  ]
++}
+\ No newline at end of file
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t.log b/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t.log
+new file mode 100644
+index 0000000..0637a08
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t.log
+@@ -0,0 +1 @@
++[]
+\ No newline at end of file
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t_key.json b/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t_key.json
+new file mode 100644
+index 0000000..a444d81
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/abi_configuration_2x68222t_key.json
+@@ -0,0 +1,23 @@
++{
++  "ndkHandlerSupportedAbis": [
++    "ARMEABI_V7A",
++    "ARM64_V8A",
++    "X86",
++    "X86_64"
++  ],
++  "ndkHandlerDefaultAbis": [
++    "ARMEABI_V7A",
++    "ARM64_V8A",
++    "X86",
++    "X86_64"
++  ],
++  "externalNativeBuildAbiFilters": [
++    "x86_64",
++    "x86",
++    "armeabi-v7a",
++    "arm64-v8a"
++  ],
++  "ndkConfigAbiFilters": [],
++  "splitsFilterAbis": [],
++  "ideBuildOnlyTargetAbi": true
++}
+\ No newline at end of file
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_32_timing.txt b/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_32_timing.txt
+new file mode 100644
+index 0000000..2dc9d74
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_32_timing.txt
+@@ -0,0 +1,46 @@
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    create-module-model 16ms
++    [gap of 10ms]
++    create-ARMEABI_V7A-model 14ms
++    create-ARM64_V8A-model 13ms
++    create-X86-model 15ms
++    create-X86_64-model 11ms
++    create-variant-model 11ms
++    create-ARMEABI_V7A-model 12ms
++    create-ARM64_V8A-model 12ms
++    create-X86-model 17ms
++    create-X86_64-model 14ms
++  create-initial-cxx-model completed in 164ms
++  [gap of 11ms]
++create_cxx_tasks completed in 175ms
++
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    create-module-model 12ms
++    create-ARMEABI_V7A-model 13ms
++    [gap of 18ms]
++    create-X86_64-model 13ms
++    create-module-model 11ms
++    create-ARMEABI_V7A-model 10ms
++    create-ARM64_V8A-model 12ms
++    create-X86-model 11ms
++    create-X86_64-model 17ms
++  create-initial-cxx-model completed in 139ms
++  [gap of 18ms]
++create_cxx_tasks completed in 158ms
++
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    create-module-model 10ms
++    create-ARMEABI_V7A-model 10ms
++    create-ARM64_V8A-model 12ms
++    [gap of 39ms]
++    create-X86-model 11ms
++    [gap of 11ms]
++  create-initial-cxx-model completed in 100ms
++create_cxx_tasks completed in 107ms
++
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_366_timing.txt b/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_366_timing.txt
+new file mode 100644
+index 0000000..f942caa
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_366_timing.txt
+@@ -0,0 +1,10 @@
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    [gap of 40ms]
++    create-module-model 96ms
++    create-ARMEABI_V7A-model 24ms
++    [gap of 23ms]
++  create-initial-cxx-model completed in 192ms
++create_cxx_tasks completed in 197ms
++
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_42_timing.txt b/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_42_timing.txt
+new file mode 100644
+index 0000000..0309025
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_42_timing.txt
+@@ -0,0 +1,16 @@
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    create-module-model 18ms
++    create-ARMEABI_V7A-model 13ms
++    create-ARM64_V8A-model 11ms
++    create-X86-model 13ms
++    create-X86_64-model 10ms
++    create-module-model 11ms
++    create-ARMEABI_V7A-model 13ms
++    create-ARM64_V8A-model 13ms
++    create-X86-model 10ms
++  create-initial-cxx-model completed in 144ms
++  [gap of 10ms]
++create_cxx_tasks completed in 155ms
++
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_935_timing.txt b/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_935_timing.txt
+new file mode 100644
+index 0000000..7a11e07
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/create_cxx_tasks_935_timing.txt
+@@ -0,0 +1,52 @@
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    create-module-model 15ms
++    create-ARMEABI_V7A-model 14ms
++    create-ARM64_V8A-model 19ms
++    create-X86-model 18ms
++    create-X86_64-model 19ms
++    create-module-model 10ms
++    create-ARMEABI_V7A-model 13ms
++    create-ARM64_V8A-model 13ms
++    [gap of 10ms]
++    create-X86_64-model 10ms
++  create-initial-cxx-model completed in 168ms
++create_cxx_tasks completed in 172ms
++
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    create-module-model 10ms
++    [gap of 67ms]
++  create-initial-cxx-model completed in 77ms
++create_cxx_tasks completed in 82ms
++
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    [gap of 52ms]
++    create-ARMEABI_V7A-model 10ms
++    [gap of 17ms]
++    create-X86_64-model 11ms
++  create-initial-cxx-model completed in 92ms
++create_cxx_tasks completed in 95ms
++
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model
++    create-module-model 13ms
++    [gap of 42ms]
++    create-variant-model 10ms
++    create-ARMEABI_V7A-model 12ms
++    create-ARM64_V8A-model 10ms
++    create-X86-model 13ms
++    create-X86_64-model 12ms
++  create-initial-cxx-model completed in 118ms
++create_cxx_tasks completed in 123ms
++
++# C/C++ build system timings
++create_cxx_tasks
++  create-initial-cxx-model 62ms
++create_cxx_tasks completed in 64ms
++
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5.json b/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5.json
+new file mode 100644
+index 0000000..fb42ae2
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5.json
+@@ -0,0 +1,11 @@
++{
++  "ndk": "C:\\Users\\vivobook\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393",
++  "revision": {
++    "mMajor": 25,
++    "mMinor": 1,
++    "mMicro": 8937393,
++    "mPreview": 0,
++    "mPrecision": "MICRO",
++    "mPreviewSeparator": " "
++  }
++}
+\ No newline at end of file
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5.log b/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5.log
+new file mode 100644
+index 0000000..630bd91
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5.log
+@@ -0,0 +1,80 @@
++[
++  {
++    "level_": 0,
++    "message_": "android.ndkVersion from module build.gradle is [not set]",
++    "file_": "",
++    "tag_": "",
++    "diagnosticCode_": 0,
++    "memoizedIsInitialized": 1,
++    "unknownFields": {
++      "fields": {}
++    },
++    "memoizedSize": -1,
++    "memoizedHashCode": 0
++  },
++  {
++    "level_": 0,
++    "message_": "android.ndkPath from module build.gradle is not set",
++    "file_": "",
++    "tag_": "",
++    "diagnosticCode_": 0,
++    "memoizedIsInitialized": 1,
++    "unknownFields": {
++      "fields": {}
++    },
++    "memoizedSize": -1,
++    "memoizedHashCode": 0
++  },
++  {
++    "level_": 0,
++    "message_": "ndk.dir in local.properties is not set",
++    "file_": "",
++    "tag_": "",
++    "diagnosticCode_": 0,
++    "memoizedIsInitialized": 1,
++    "unknownFields": {
++      "fields": {}
++    },
++    "memoizedSize": -1,
++    "memoizedHashCode": 0
++  },
++  {
++    "level_": 0,
++    "message_": "Not considering ANDROID_NDK_HOME because support was removed after deprecation period.",
++    "file_": "",
++    "tag_": "",
++    "diagnosticCode_": 0,
++    "memoizedIsInitialized": 1,
++    "unknownFields": {
++      "fields": {}
++    },
++    "memoizedSize": -1,
++    "memoizedHashCode": 0
++  },
++  {
++    "level_": 0,
++    "message_": "sdkFolder is C:\\Users\\vivobook\\AppData\\Local\\Android\\Sdk",
++    "file_": "",
++    "tag_": "",
++    "diagnosticCode_": 0,
++    "memoizedIsInitialized": 1,
++    "unknownFields": {
++      "fields": {}
++    },
++    "memoizedSize": -1,
++    "memoizedHashCode": 0
++  },
++  {
++    "level_": 0,
++    "message_": "Because no explicit NDK was requested, the default version [25.1.8937393] for this Android Gradle Plugin will be used",
++    "file_": "",
++    "tag_": "",
++    "diagnosticCode_": 0,
++    "memoizedIsInitialized": 1,
++    "unknownFields": {
++      "fields": {}
++    },
++    "memoizedSize": -1,
++    "memoizedHashCode": 0
++  }
++]
+\ No newline at end of file
+diff --git a/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5_key.json b/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5_key.json
+new file mode 100644
+index 0000000..37d78cd
+--- /dev/null
++++ b/node_modules/react-native-reanimated/android/build/intermediates/cxx/ndk_locator_record_3l3ld4s5_key.json
+@@ -0,0 +1,8 @@
++{
++  "sdkFolder": "C:\\Users\\vivobook\\AppData\\Local\\Android\\Sdk",
++  "sideBySideNdkFolderNames": [
++    "23.1.7779620",
++    "25.1.8937393",
++    "28.0.12916984"
++  ]
++}
+\ No newline at end of file

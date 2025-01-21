@@ -8,15 +8,27 @@
       "distribution": "internal",
       "android": {
         "gradleCommand": ":app:assembleDebug",
-        "buildType": "apk"
+        "buildType": "apk",
+        "image": "ubuntu-22.04-jdk-17-ndk-r21e"
+      },
+      "env": {
+        "ENABLE_PATCHES": "1"
       }
     },
     "preview": {
       "distribution": "internal",
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "image": "ubuntu-22.04-jdk-17-ndk-r21e"
+      },
+      "env": {
+        "ENABLE_PATCHES": "1"
       }
     },
-    "production": {}
+    "production": {
+      "env": {
+        "ENABLE_PATCHES": "1"
+      }
+    }
   }
 }

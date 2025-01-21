@@ -1,0 +1,59 @@
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/checksums/checksums.lock b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/checksums/checksums.lock
+new file mode 100644
+index 0000000..1df174a
+Binary files /dev/null and b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/checksums/checksums.lock differ
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/dependencies-accessors/gc.properties b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/dependencies-accessors/gc.properties
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileChanges/last-build.bin b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileChanges/last-build.bin
+new file mode 100644
+index 0000000..f76dd23
+Binary files /dev/null and b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileChanges/last-build.bin differ
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileHashes/fileHashes.bin b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileHashes/fileHashes.bin
+new file mode 100644
+index 0000000..4bfa3e4
+Binary files /dev/null and b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileHashes/fileHashes.bin differ
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileHashes/fileHashes.lock b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileHashes/fileHashes.lock
+new file mode 100644
+index 0000000..ba131cd
+Binary files /dev/null and b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/fileHashes/fileHashes.lock differ
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/gc.properties b/node_modules/@react-native-async-storage/async-storage/android/.gradle/8.10/gc.properties
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock b/node_modules/@react-native-async-storage/async-storage/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+new file mode 100644
+index 0000000..a237cb0
+Binary files /dev/null and b/node_modules/@react-native-async-storage/async-storage/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock differ
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/buildOutputCleanup/cache.properties b/node_modules/@react-native-async-storage/async-storage/android/.gradle/buildOutputCleanup/cache.properties
+new file mode 100644
+index 0000000..36ec02d
+--- /dev/null
++++ b/node_modules/@react-native-async-storage/async-storage/android/.gradle/buildOutputCleanup/cache.properties
+@@ -0,0 +1,2 @@
++#Sat Jan 18 23:03:47 WIB 2025
++gradle.version=8.10
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/nb-cache/trust/4DC3AE24CF8D8F49C9F580114002BD9443E2B11413E37F60D1227808C451F822 b/node_modules/@react-native-async-storage/async-storage/android/.gradle/nb-cache/trust/4DC3AE24CF8D8F49C9F580114002BD9443E2B11413E37F60D1227808C451F822
+new file mode 100644
+index 0000000..1979fb5
+--- /dev/null
++++ b/node_modules/@react-native-async-storage/async-storage/android/.gradle/nb-cache/trust/4DC3AE24CF8D8F49C9F580114002BD9443E2B11413E37F60D1227808C451F822
+@@ -0,0 +1 @@
++BFC99B824BD833CBD4FF430E75E8ED8A32D0C5C2C0487A66CD2B58307E551529
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.gradle/vcs-1/gc.properties b/node_modules/@react-native-async-storage/async-storage/android/.gradle/vcs-1/gc.properties
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/build.gradle b/node_modules/@react-native-async-storage/async-storage/android/build.gradle
+index 462db2d..a287ec7 100644
+--- a/node_modules/@react-native-async-storage/async-storage/android/build.gradle
++++ b/node_modules/@react-native-async-storage/async-storage/android/build.gradle
+@@ -74,6 +74,10 @@ if (useNextStorage) {
+ }
+ 
+ android {
++    namespace "com.reactnativecommunity.asyncstorage"
++    buildFeatures {
++        buildConfig true
++    }
+     compileSdkVersion safeExtGet('compileSdkVersion', 32)
+     defaultConfig {
+         minSdkVersion safeExtGet('minSdkVersion', 23)

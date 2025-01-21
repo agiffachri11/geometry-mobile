@@ -1,0 +1,22 @@
+diff --git a/node_modules/@react-native-community/slider/android/.gradle/nb-cache/trust/A6FC628824B073F38F4C7595A66FFEC9856666070C583FE88508FD974A68E907 b/node_modules/@react-native-community/slider/android/.gradle/nb-cache/trust/A6FC628824B073F38F4C7595A66FFEC9856666070C583FE88508FD974A68E907
+new file mode 100644
+index 0000000..66e1743
+--- /dev/null
++++ b/node_modules/@react-native-community/slider/android/.gradle/nb-cache/trust/A6FC628824B073F38F4C7595A66FFEC9856666070C583FE88508FD974A68E907
+@@ -0,0 +1 @@
++110E4F23EA119810513DA396B2061280C4D921167F84F7FBB990F5B742758551
+diff --git a/node_modules/@react-native-community/slider/android/build.gradle b/node_modules/@react-native-community/slider/android/build.gradle
+index f5a1c98..0d8c7d1 100644
+--- a/node_modules/@react-native-community/slider/android/build.gradle
++++ b/node_modules/@react-native-community/slider/android/build.gradle
+@@ -31,6 +31,10 @@ def getExtOrIntegerDefault(name) {
+ }
+ 
+ android {
++  buildFeatures {
++    buildConfig true
++  }
++  namespace "com.reactnativecommunity.slider"
+   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
+   buildToolsVersion getExtOrDefault('buildToolsVersion')
+ 
