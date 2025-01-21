@@ -1,4 +1,4 @@
-// build gradle root
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
     ext {
@@ -8,13 +8,6 @@ buildscript {
         targetSdkVersion = 34
         kotlinVersion = "1.8.10"
         ndkVersion = "23.1.7779620"
-        kotlinJvmTarget = "11"
-        androidXVersion = "1.0.0"
-        androidXCore = "1.7.0"
-        kotlinCompilerVersion = "1.8.10"
-        kotlin_version = kotlinVersion
-        fbjniVersion = "0.3.0"
-        reactNativeVersion = "0.72.17"
     }
     repositories {
         google()
@@ -23,83 +16,23 @@ buildscript {
     dependencies {
         classpath('com.android.tools.build:gradle:8.1.0') 
         classpath('com.facebook.react:react-native-gradle-plugin')
-        classpath 'com.google.gms:google-services:4.3.15'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    }
-}
-
-configurations.all {
-    resolutionStrategy {
-        force "com.facebook.fbjni:fbjni:${fbjniVersion}"
-        force "com.facebook.react:react-android:${reactNativeVersion}"
-        force "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
-        force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
-        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
-        force "org.jetbrains.kotlin:kotlin-android-extensions:${kotlinVersion}"
+        classpath 'com.google.gms:google-services:4.3.15'  // Pastikan ini masih ada
     }
 }
 
 allprojects {
-    configurations.all {
-        resolutionStrategy {
-            force "com.facebook.fbjni:fbjni:${fbjniVersion}"
-            force "com.facebook.react:react-android:${reactNativeVersion}"
-            force "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
-            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
-            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
-            force "org.jetbrains.kotlin:kotlin-android-extensions:${kotlinVersion}"
-        }
-    }
     repositories {
-        exclusiveContent {
-            filter {
-                includeGroup "com.facebook.react"
-                includeGroup "com.facebook.fbjni"
-            }
-            forRepository {
-                maven {
-                    url "$rootDir/../node_modules/react-native/android"
-                }
-            }
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url(new File(['node', '--print', "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), '../android'))
         }
         maven {
-            url("$rootDir/../node_modules/jsc-android/dist")
+            // Android JSC is installed from npm
+            url(new File(['node', '--print', "require.resolve('jsc-android/package.json')"].execute(null, rootDir).text.trim(), '../dist'))
         }
-        maven {
-            url("$rootDir/../node_modules/expo/android/maven")
-        }
+
         google()
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
     }
 }
-
-subprojects { subproject ->
-    afterEvaluate {
-        if ((subproject.plugins.hasPlugin('android') || subproject.plugins.hasPlugin('android-library'))) {
-            android {
-                compileOptions {
-                    sourceCompatibility JavaVersion.VERSION_11
-                    targetCompatibility JavaVersion.VERSION_11
-                }
-            }
-
-            // For Kotlin projects
-            if (subproject.plugins.hasPlugin('kotlin-android')) {
-                // kotlin {
-                //     jvmToolchain(11)
-                // }
-                
-                tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-                    kotlinOptions {
-                        jvmTarget = "11"
-                        // Update Kotlin language version to 1.9 to support data objects
-                        languageVersion = "1.8"
-                        apiVersion = "1.8"
-                    }
-                }
-            }
-        }
-    }
-}
-

@@ -26,8 +26,7 @@ export default {
   },
   extra: {
     eas: {
-      projectId: "677b811b-8210-435c-a9e5-9d7a26c46914"
+      projectId: "886a1f7a-3d94-4bf8-bb54-e30eef54d80c"
     }
-  },
-  owner: "alfandito"
+  }
 };

@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "postinstall": "patch-package",
-    "prepare": "patch-package",
     "start": "expo start",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -19,10 +17,9 @@
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
     "expo": "^52.0.25",
-    "expo-dev-client": "~5.0.9",
+    "expo-dev-client": "^5.0.9",
     "expo-gl": "~13.0.1",
     "expo-status-bar": "~1.6.0",
-    "expo-system-ui": "~4.0.7",
     "expo-three": "6.0.1",
     "firebase": "^10.7.1",
     "react": "18.2.0",
@@ -33,9 +30,7 @@
     "three": "0.127.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@react-native/gradle-plugin": "^0.76.6",
-    "patch-package": "^8.0.0"
+    "@babel/core": "^7.20.0"
   },
   "private": true
 }
